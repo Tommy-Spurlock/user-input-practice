@@ -46,27 +46,32 @@ const depart = document.querySelector("#department-input").value
         department: depart
     }
 // console.log(newEmployee)
-fetch("http://localhost:8088/employees", {
-method: "POST",
-headers: {
-    "Content-Type": "application/json"
-},
-body: JSON.stringify(newEmployee)
-}).then(() => {
-    fetch("http://localhost:8088/employees")
-    .then(response => response.json())
-    .then(employees => {
-        document.querySelector(".print-here").innerHTML = ""
-        employees.forEach(employee => {
-            document.querySelector(".print-here").innerHTML += `<ul><h3>${employee.firstName} ${employee.lastName}</h3><li>${employee.email}</li><li>${employee.phoneNumber}</li><li>${employee.birthday}</li><li>${employee.department}</li>
-            </ul>`
-        })
-}) 
+// fetch("http://localhost:8088/employees", {
+// method: "POST",
+// headers: {
+//     "Content-Type": "application/json"
+// },
+// body: JSON.stringify(newEmployee)
+// }).then(() => {
+//     fetch("http://localhost:8088/employees")
+//     .then(response => response.json())
+//     .then(employees => {
+//         document.querySelector(".print-here").innerHTML = ""
+//         employees.forEach(employee => {
+//             document.querySelector(".print-here").innerHTML += buildHTMLString(employee.firstName, employee.lastName, employee.email, employee.phoneNumber, employee.birthday, employee.department)
+            
+            
+            
+            
+//         })
+// }) 
 
 
 
-})
- 
+// })
+ createEmployee(newEmployee).then(() => {
+     printAllTasks()
+ })
 
 
 
